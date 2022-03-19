@@ -27,4 +27,9 @@ public class SimpleAccountRepository implements AccountRepository {
         data.put(account.getId(), account);
         return account;
     }
+
+    @Override
+    public void deleteAll() {
+        data.clear();
+    }
 }
