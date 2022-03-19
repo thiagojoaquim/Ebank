@@ -1,6 +1,6 @@
 package com.ebanx.ebank.adapter;
 
-import com.ebanx.ebank.usecase.GetBalanceUseCase;
+import com.ebanx.ebank.usecase.port.input.GetBalanceUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

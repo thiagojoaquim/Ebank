@@ -1,4 +1,4 @@
-package com.ebanx.ebank.usecase;
+package com.ebanx.ebank.usecase.port.input;
 
 import org.springframework.stereotype.Component;
 

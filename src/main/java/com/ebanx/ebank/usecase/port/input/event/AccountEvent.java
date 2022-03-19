@@ -1,4 +1,4 @@
-package com.ebanx.ebank.usecase.event;
+package com.ebanx.ebank.usecase.port.input.event;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

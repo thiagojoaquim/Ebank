@@ -1,12 +1,12 @@
 package com.ebanx.ebank.usecase.impl;
 
 import com.ebanx.ebank.entity.Account;
-import com.ebanx.ebank.entity.TransferReceipt;
-import com.ebanx.ebank.entity.repository.AccountRepository;
-import com.ebanx.ebank.usecase.AccountEventAction;
-import com.ebanx.ebank.usecase.TransferUseCase;
-import com.ebanx.ebank.usecase.UseCase;
-import com.ebanx.ebank.usecase.event.AccountEvent;
+import com.ebanx.ebank.usecase.port.output.receipt.TransferReceipt;
+import com.ebanx.ebank.usecase.port.output.repository.AccountRepository;
+import com.ebanx.ebank.usecase.port.input.AccountEventAction;
+import com.ebanx.ebank.usecase.port.input.TransferUseCase;
+import com.ebanx.ebank.usecase.port.input.UseCase;
+import com.ebanx.ebank.usecase.port.input.event.AccountEvent;
 import com.ebanx.ebank.usecase.exception.NotFoundException;
 import lombok.RequiredArgsConstructor;
 

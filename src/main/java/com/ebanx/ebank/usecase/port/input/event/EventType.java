@@ -1,6 +1,5 @@
-package com.ebanx.ebank.usecase.event;
+package com.ebanx.ebank.usecase.port.input.event;
 
-import com.ebanx.ebank.adapter.dto.EventDTO;
 import com.ebanx.ebank.usecase.exception.NotFoundException;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

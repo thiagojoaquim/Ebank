@@ -1,4 +1,4 @@
-package com.ebanx.ebank.entity.repository;
+package com.ebanx.ebank.usecase.port.output.repository;
 
 import com.ebanx.ebank.entity.Account;
 

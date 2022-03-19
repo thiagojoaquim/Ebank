@@ -1,9 +1,9 @@
 package com.ebanx.ebank.adapter;
 
-import com.ebanx.ebank.adapter.dto.EventDTO;
-import com.ebanx.ebank.adapter.event.AccountEventActionFactory;
-import com.ebanx.ebank.usecase.event.AccountEvent;
-import com.ebanx.ebank.usecase.event.EventType;
+import com.ebanx.ebank.adapter.port.EventDTO;
+import com.ebanx.ebank.usecase.port.input.event.AccountEventActionFactory;
+import com.ebanx.ebank.usecase.port.input.event.AccountEvent;
+import com.ebanx.ebank.usecase.port.input.event.EventType;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

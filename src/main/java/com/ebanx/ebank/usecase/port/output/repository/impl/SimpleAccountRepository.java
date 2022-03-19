@@ -1,12 +1,10 @@
-package com.ebanx.ebank.entity.repository.impl;
+package com.ebanx.ebank.usecase.port.output.repository.impl;
 
 import com.ebanx.ebank.entity.Account;
-import com.ebanx.ebank.entity.repository.AccountRepository;
+import com.ebanx.ebank.usecase.port.output.repository.AccountRepository;
 import org.springframework.stereotype.Repository;
 
-import java.math.BigDecimal;
 import java.util.HashMap;
-import java.util.Objects;
 import java.util.Optional;
 
 

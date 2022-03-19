@@ -1,4 +1,4 @@
-package com.ebanx.ebank.usecase.impl;
+package com.ebanx.ebank.usecase.port.input;
 
 import com.ebanx.ebank.entity.Account;
 
@@ -6,5 +6,5 @@ import java.math.BigDecimal;
 
 public interface DepositUseCase {
 
-    public Account execute(Long accountId, BigDecimal value);
+    Account execute(Long accountId, BigDecimal value);
 }

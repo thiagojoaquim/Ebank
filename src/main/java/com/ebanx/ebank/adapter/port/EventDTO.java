@@ -1,4 +1,4 @@
-package com.ebanx.ebank.adapter.dto;
+package com.ebanx.ebank.adapter.port;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

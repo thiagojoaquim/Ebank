@@ -1,6 +1,8 @@
 package com.ebanx.ebank.entity;
 
 
+import com.ebanx.ebank.entity.exception.InsufficientBalanceException;
+import com.ebanx.ebank.entity.exception.InvalidDepositValueException;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,10 +18,16 @@ public class Account {
     private BigDecimal balance;
 
     public void deposit(BigDecimal amount) {
+        if (amount.compareTo(BigDecimal.ZERO) < 0) {
+            throw new InvalidDepositValueException();
+        }
         balance = balance.add(amount);
     }
 
     public void withdraw(BigDecimal amount) {
+        if (balance.compareTo(amount) < 0) {
+            throw new InsufficientBalanceException();
+        }
         balance = balance.subtract(amount);
     }
 
