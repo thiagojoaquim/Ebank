@@ -4,6 +4,7 @@ import com.ebanx.ebank.adapter.port.EventDTO;
 import com.ebanx.ebank.usecase.port.input.event.AccountEventActionFactory;
 import com.ebanx.ebank.usecase.port.input.event.AccountEvent;
 import com.ebanx.ebank.usecase.port.input.event.EventType;
+import com.google.gson.Gson;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class EventController {
 
     private final AccountEventActionFactory factory;
+    private Gson gson = new Gson();
 
     @PostMapping
     public ResponseEntity event(@RequestBody EventDTO eventDTO) {
@@ -26,6 +28,6 @@ public class EventController {
                         eventDTO.getOrigin(),
                         eventDTO.getDestination(),
                         eventDTO.getAmount()));
-        return new ResponseEntity(resultOfAction, HttpStatus.CREATED);
+        return new ResponseEntity(gson.toJson(resultOfAction), HttpStatus.CREATED);
     }
 }
