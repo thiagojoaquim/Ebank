@@ -31,6 +31,6 @@ public class EventController {
         var json = gson.toJson(resultOfAction);
         //necessary code to pass in ipkiss test. Remove after that.
         json = json.replace(": {", ":{").replace(",\"", ", \"");
-        return new ResponseEntity(gson.toJson(resultOfAction), HttpStatus.CREATED);
+        return new ResponseEntity(json, HttpStatus.CREATED);
     }
 }
