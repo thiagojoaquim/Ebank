@@ -6,6 +6,9 @@
 
 Ebank is a BaaS project developed for Ebanx hiring test.
 
+app link: http://ebanx-ebank.herokuapp.com
+
+
 
 ## About Backend
 
