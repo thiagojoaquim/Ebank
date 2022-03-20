@@ -18,14 +18,14 @@ public class SimpleWithdrawUseCase implements WithdrawUseCase, AccountEventActio
     private final AccountRepository accountRepository;
 
     @Override
-    public Account execute(Long accountId, BigDecimal value) {
+    public WithdrawReceipt execute(Long accountId, BigDecimal value) {
         var account = accountRepository.getById(accountId).orElseThrow(() -> new NotFoundException());
         account.withdraw(value);
-        return account;
+        return new WithdrawReceipt(account);
     }
 
     @Override
     public WithdrawReceipt execute(AccountEvent accountEvent) {
-        return new WithdrawReceipt(execute(accountEvent.getOriginAccount(), accountEvent.getAmount()));
+        return execute(accountEvent.getOriginAccount(), accountEvent.getAmount());
     }
 }

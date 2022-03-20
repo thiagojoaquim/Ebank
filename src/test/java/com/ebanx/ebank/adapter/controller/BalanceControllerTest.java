@@ -1,6 +1,5 @@
 package com.ebanx.ebank.adapter.controller;
 
-import com.ebanx.ebank.adapter.BalanceController;
 import com.ebanx.ebank.shared.TestUtil;
 import com.ebanx.ebank.usecase.exception.NotFoundException;
 import com.ebanx.ebank.usecase.impl.SimpleGetBalanceUseCase;

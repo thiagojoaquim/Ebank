@@ -2,7 +2,6 @@ package com.ebanx.ebank.usecase.impl;
 
 import com.ebanx.ebank.entity.Account;
 import com.ebanx.ebank.entity.exception.InsufficientBalanceException;
-import com.ebanx.ebank.entity.exception.InvalidDepositValueException;
 import com.ebanx.ebank.shared.TestUtil;
 import com.ebanx.ebank.usecase.exception.NotFoundException;
 import com.ebanx.ebank.usecase.port.input.WithdrawUseCase;
@@ -38,9 +37,9 @@ public class SimpleWithdrawUseCaseTest {
     @Test
     void testExecuteExistingAccountSuccess() {
         accountRepository.save(new Account(accountId, amount));
-        var account = withdrawUseCase.execute(accountId, BigDecimal.ONE);
-        Assertions.assertEquals(accountId, account.getId());
-        Assertions.assertEquals(amount.subtract(BigDecimal.ONE), account.getBalance());
+        var withdrawReceipt = withdrawUseCase.execute(accountId, BigDecimal.ONE);
+        Assertions.assertEquals(accountId.toString(), withdrawReceipt.getOrigin().getId());
+        Assertions.assertEquals(amount.subtract(BigDecimal.ONE), withdrawReceipt.getOrigin().getBalance());
     }
 
     @Test

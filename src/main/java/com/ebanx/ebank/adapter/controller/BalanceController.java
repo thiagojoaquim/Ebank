@@ -1,4 +1,4 @@
-package com.ebanx.ebank.adapter;
+package com.ebanx.ebank.adapter.controller;
 
 import com.ebanx.ebank.usecase.port.input.GetBalanceUseCase;
 import lombok.RequiredArgsConstructor;

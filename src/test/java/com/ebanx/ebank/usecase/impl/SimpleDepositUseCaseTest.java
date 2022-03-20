@@ -29,18 +29,18 @@ public class SimpleDepositUseCaseTest {
 
     @Test
     void testExecuteNonExistingAccountSuccess() {
-        var account = depositUseCase.execute(accountId, amount);
-        Assertions.assertEquals(accountId, account.getId());
-        Assertions.assertEquals(amount, account.getBalance());
+        var depositReceipt = depositUseCase.execute(accountId, amount);
+        Assertions.assertEquals(accountId.toString(), depositReceipt.getDestination().getId());
+        Assertions.assertEquals(amount, depositReceipt.getDestination().getBalance());
         Assertions.assertNotNull(accountRepository.getById(accountId));
     }
 
     @Test
     void testExecuteExistingAccountSuccess() {
         accountRepository.save(new Account(accountId, amount));
-        var account = depositUseCase.execute(accountId, amount);
-        Assertions.assertEquals(accountId, account.getId());
-        Assertions.assertEquals(amount.add(amount), account.getBalance());
+        var depositReceipt = depositUseCase.execute(accountId, amount);
+        Assertions.assertEquals(accountId.toString(), depositReceipt.getDestination().getId());
+        Assertions.assertEquals(amount.add(amount), depositReceipt.getDestination().getBalance());
     }
 
     @Test

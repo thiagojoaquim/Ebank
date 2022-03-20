@@ -1,6 +1,5 @@
 package com.ebanx.ebank.adapter.controller;
 
-import com.ebanx.ebank.adapter.EventController;
 import com.ebanx.ebank.adapter.port.EventDTO;
 import com.ebanx.ebank.entity.Account;
 import com.ebanx.ebank.shared.TestUtil;

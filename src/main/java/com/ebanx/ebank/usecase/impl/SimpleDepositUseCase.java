@@ -1,7 +1,6 @@
 package com.ebanx.ebank.usecase.impl;
 
 import com.ebanx.ebank.entity.Account;
-import com.ebanx.ebank.usecase.port.output.receipt.AccountExtract;
 import com.ebanx.ebank.usecase.port.output.receipt.DepositReceipt;
 import com.ebanx.ebank.usecase.port.output.repository.AccountRepository;
 import com.ebanx.ebank.usecase.port.input.AccountEventAction;
@@ -19,15 +18,15 @@ public class SimpleDepositUseCase implements AccountEventAction<DepositReceipt>,
     private final AccountRepository accountRepository;
 
     @Override
-    public Account execute(Long accountId, BigDecimal value) {
+    public DepositReceipt execute(Long accountId, BigDecimal value) {
         var account = accountRepository.getById(accountId).orElse(new Account(accountId, BigDecimal.ZERO));
         account.deposit(value);
         accountRepository.save(account);
-        return account;
+        return new DepositReceipt(account);
     }
 
     @Override
     public DepositReceipt execute(AccountEvent event) {
-        return new DepositReceipt(execute(event.getDestinationAccount(), event.getAmount()));
+        return execute(event.getDestinationAccount(), event.getAmount());
     }
 }

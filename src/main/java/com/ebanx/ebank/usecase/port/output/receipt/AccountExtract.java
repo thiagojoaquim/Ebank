@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AccountExtract {
-
+    // id parameter has to be String type because the ipkiss script test.
     private String id;
     private BigDecimal balance;
 

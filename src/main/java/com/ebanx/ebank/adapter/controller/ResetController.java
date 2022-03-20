@@ -1,4 +1,4 @@
-package com.ebanx.ebank.adapter;
+package com.ebanx.ebank.adapter.controller;
 
 import com.ebanx.ebank.usecase.port.output.repository.AccountRepository;
 import lombok.RequiredArgsConstructor;

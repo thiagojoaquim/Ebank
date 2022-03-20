@@ -1,11 +1,11 @@
 package com.ebanx.ebank.usecase.port.input;
 
-import com.ebanx.ebank.entity.Account;
+import com.ebanx.ebank.usecase.port.output.receipt.WithdrawReceipt;
 
 import java.math.BigDecimal;
 
 public interface WithdrawUseCase {
 
-    Account execute(Long accountId, BigDecimal value);
+    WithdrawReceipt execute(Long accountId, BigDecimal value);
 
 }

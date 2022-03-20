@@ -1,10 +1,10 @@
 package com.ebanx.ebank.usecase.port.input;
 
-import com.ebanx.ebank.entity.Account;
+import com.ebanx.ebank.usecase.port.output.receipt.DepositReceipt;
 
 import java.math.BigDecimal;
 
 public interface DepositUseCase {
 
-    Account execute(Long accountId, BigDecimal value);
+    DepositReceipt execute(Long accountId, BigDecimal value);
 }

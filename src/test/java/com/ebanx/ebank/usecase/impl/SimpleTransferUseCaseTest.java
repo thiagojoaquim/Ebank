@@ -6,7 +6,6 @@ import com.ebanx.ebank.usecase.exception.NotFoundException;
 import com.ebanx.ebank.usecase.port.input.TransferUseCase;
 import com.ebanx.ebank.usecase.port.output.repository.AccountRepository;
 import com.ebanx.ebank.usecase.port.output.repository.impl.SimpleAccountRepository;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

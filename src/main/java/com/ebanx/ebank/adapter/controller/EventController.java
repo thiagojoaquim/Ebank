@@ -1,10 +1,10 @@
-package com.ebanx.ebank.adapter;
+package com.ebanx.ebank.adapter.controller;
 
+import com.ebanx.ebank.adapter.converter.JsonConverter;
 import com.ebanx.ebank.adapter.port.EventDTO;
-import com.ebanx.ebank.usecase.port.input.event.AccountEventActionFactory;
 import com.ebanx.ebank.usecase.port.input.event.AccountEvent;
+import com.ebanx.ebank.usecase.port.input.event.AccountEventActionFactory;
 import com.ebanx.ebank.usecase.port.input.event.EventType;
-import com.google.gson.Gson;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class EventController {
 
     private final AccountEventActionFactory factory;
-    private Gson gson = new Gson();
+    private final JsonConverter converter;
 
     @PostMapping
     public ResponseEntity event(@RequestBody EventDTO eventDTO) {
@@ -28,9 +28,6 @@ public class EventController {
                         eventDTO.getOrigin(),
                         eventDTO.getDestination(),
                         eventDTO.getAmount()));
-        var json = gson.toJson(resultOfAction);
-        //necessary code to pass in ipkiss test. Remove after that.
-        json = json.replace(":{", ": {").replace(",\"", ", \"");
-        return new ResponseEntity(json, HttpStatus.CREATED);
+        return new ResponseEntity(converter.toJson(resultOfAction), HttpStatus.CREATED);
     }
 }
