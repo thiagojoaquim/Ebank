@@ -5,7 +5,7 @@ plugins {
 }
 
 jar {
-	baseName('ebank')
+	baseName('ebanx-ebank')
 	version('0.0.1-SNAPSHOT')
 	manifest {
 		attributes(
