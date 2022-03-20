@@ -1,6 +1,7 @@
 package com.ebanx.ebank.usecase.impl;
 
 import com.ebanx.ebank.entity.Account;
+import com.ebanx.ebank.usecase.port.output.receipt.AccountExtract;
 import com.ebanx.ebank.usecase.port.output.receipt.TransferReceipt;
 import com.ebanx.ebank.usecase.port.output.repository.AccountRepository;
 import com.ebanx.ebank.usecase.port.input.AccountEventAction;
@@ -23,7 +24,7 @@ public class SimpleTransferUseCase implements TransferUseCase, AccountEventActio
         var originAccount = accountRepository.getById(originAccountId).orElseThrow(() -> new NotFoundException());
         var destinationAccount = accountRepository.getById(destinationAccountId).orElse( new Account(destinationAccountId, BigDecimal.ZERO));
         originAccount.transfer(destinationAccount, amount);
-        return new TransferReceipt(originAccount, destinationAccount);
+        return new TransferReceipt(new AccountExtract(originAccount), new AccountExtract(destinationAccount));
     }
 
     @Override

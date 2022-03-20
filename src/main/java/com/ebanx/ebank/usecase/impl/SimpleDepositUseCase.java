@@ -1,6 +1,7 @@
 package com.ebanx.ebank.usecase.impl;
 
 import com.ebanx.ebank.entity.Account;
+import com.ebanx.ebank.usecase.port.output.receipt.AccountExtract;
 import com.ebanx.ebank.usecase.port.output.receipt.DepositReceipt;
 import com.ebanx.ebank.usecase.port.output.repository.AccountRepository;
 import com.ebanx.ebank.usecase.port.input.AccountEventAction;

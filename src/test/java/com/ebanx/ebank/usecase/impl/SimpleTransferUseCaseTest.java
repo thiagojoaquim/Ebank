@@ -34,7 +34,7 @@ public class SimpleTransferUseCaseTest {
     void testTransferFromExistingAccount() {
         accountRepository.save(new Account(originAccountId, amount));
         var transferReceipt = transferUseCase.execute(originAccountId, destinationAccountId, amount);
-        Assertions.assertEquals(originAccountId, transferReceipt.getOrigin().getId());
+        Assertions.assertEquals(originAccountId.toString(), transferReceipt.getOrigin().getId());
         Assertions.assertEquals(BigDecimal.ZERO, transferReceipt.getOrigin().getBalance());
         Assertions.assertNotNull(accountRepository.getById(originAccountId));
     }
@@ -49,9 +49,9 @@ public class SimpleTransferUseCaseTest {
         accountRepository.save(new Account(originAccountId, amount));
         accountRepository.save(new Account(destinationAccountId, BigDecimal.ZERO));
         var transferReceipt = transferUseCase.execute(originAccountId, destinationAccountId, amount);
-        Assertions.assertEquals(originAccountId, transferReceipt.getOrigin().getId());
+        Assertions.assertEquals(originAccountId.toString(), transferReceipt.getOrigin().getId());
         Assertions.assertEquals(BigDecimal.ZERO, transferReceipt.getOrigin().getBalance());
-        Assertions.assertEquals(destinationAccountId, transferReceipt.getDestination().getId());
+        Assertions.assertEquals(destinationAccountId.toString(), transferReceipt.getDestination().getId());
         Assertions.assertEquals(amount, transferReceipt.getDestination().getBalance());
     }
 }

@@ -9,5 +9,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class WithdrawReceipt {
-    private Account origin;
+    private AccountExtract origin;
+
+    public WithdrawReceipt(Account account) {
+        origin = new AccountExtract(account);
+    }
 }

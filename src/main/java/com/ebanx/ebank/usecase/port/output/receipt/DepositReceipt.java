@@ -7,6 +7,10 @@ import lombok.Data;
 @AllArgsConstructor
 @Data
 public class DepositReceipt {
-    private Account destination;
+    private AccountExtract destination;
+
+    public DepositReceipt(Account account) {
+        destination = new AccountExtract(account);
+    }
 
 }
