@@ -1,18 +1,21 @@
 package com.ebanx.ebank.external.converter;
 
 import com.ebanx.ebank.adapter.converter.JsonConverter;
+import com.ebanx.ebank.shared.annotation.Converter;
 import com.google.gson.Gson;
-import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 
-@Component
+@Converter
 public class GsonConverter implements JsonConverter {
 
     //TODO - Verify other actions or parsers to attend ipkiss script test json format.
     private Gson converter;
 
     @PostConstruct
+    void init() {
+        converter = new Gson();
+    }
 
 
     @Override
